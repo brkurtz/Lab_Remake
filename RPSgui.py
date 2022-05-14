@@ -27,6 +27,7 @@ class RPSgui:
         :param window: window name for tkinter
         """
         # Empty widgets for after the game starts
+        self.button_restart = None
         self.label_outcome = None
         self.frame_outcome = None
         self.choice_scissors = None
@@ -84,6 +85,10 @@ class RPSgui:
         global player_score
         global comp_score
         global max_round
+        global round_counter
+        player_score = 0
+        comp_score = 0
+        round_counter = 0
         status = self.radio_round.get()
         if status > 0:
             for widget in self.window.winfo_children():
@@ -235,4 +240,7 @@ class RPSgui:
             else:
                 self.label_outcome.config(text=f'You chose {player_choice} and the computer chose {computer_choice}'
                                                '\nYou lost to the computer')
+
+            self.button_restart = Button(self.frame_outcome, text='Restart', command=self.start)
+            self.button_restart.pack(anchor='center')
 
