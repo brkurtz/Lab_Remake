@@ -208,7 +208,7 @@ class RPSgui:
         This method updates the screen after a button is pressed
         :return:
         """
-        self.label_outcome.config(text=f'You chose scissors and the computer chose {computer_choice}')
+        self.label_outcome.config(text=f'You chose {player_score} and the computer chose {computer_choice}')
         self.label_scores_player.config(text='Player Score:' + str(player_score))
         self.label_scores_comp.config(text='Computer Score:' + str(comp_score))
 
