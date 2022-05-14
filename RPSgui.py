@@ -12,6 +12,7 @@ comp_score = 0
 round_counter = 1
 max_round = 0
 computer_choice = ''
+player_choice = ''
 
 
 class RPSgui:
@@ -140,6 +141,7 @@ class RPSgui:
         global comp_score
         global round_counter
         global computer_choice
+        global player_choice
         options = ['rock', 'paper', 'scissors']
         rand = random.randint(0, 2)
         computer_choice = options[rand]
@@ -153,6 +155,7 @@ class RPSgui:
                 comp_score = comp_score + 1
             elif result == 0:
                 comp_score = comp_score + 2
+        player_choice = 'rock'
         self.update()
 
     def paper(self) -> None:
@@ -164,6 +167,7 @@ class RPSgui:
         global comp_score
         global round_counter
         global computer_choice
+        global player_choice
         options = ['rock', 'paper', 'scissors']
         rand = random.randint(0, 2)
         computer_choice = options[rand]
@@ -177,6 +181,7 @@ class RPSgui:
                 comp_score = comp_score + 1
             elif result == 0:
                 comp_score = comp_score + 2
+        player_choice = 'paper'
         self.update()
 
     def scissors(self) -> None:
@@ -188,6 +193,7 @@ class RPSgui:
         global comp_score
         global round_counter
         global computer_choice
+        global player_choice
         options = ['rock', 'paper', 'scissors']
         rand = random.randint(0, 2)
         computer_choice = options[rand]
@@ -201,6 +207,7 @@ class RPSgui:
                 comp_score = comp_score + 1
             elif result == 0:
                 comp_score = comp_score + 2
+        player_choice = 'scissors'
         self.update()
 
     def update(self):
@@ -208,7 +215,7 @@ class RPSgui:
         This method updates the screen after a button is pressed
         :return:
         """
-        self.label_outcome.config(text=f'You chose {player_score} and the computer chose {computer_choice}')
+        self.label_outcome.config(text=f'You chose {player_choice} and the computer chose {computer_choice}')
         self.label_scores_player.config(text='Player Score:' + str(player_score))
         self.label_scores_comp.config(text='Computer Score:' + str(comp_score))
 
