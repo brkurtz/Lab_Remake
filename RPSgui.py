@@ -88,7 +88,7 @@ class RPSgui:
         global round_counter
         player_score = 0
         comp_score = 0
-        round_counter = 0
+        round_counter = 1
         status = self.radio_round.get()
         if status > 0:
             for widget in self.window.winfo_children():
