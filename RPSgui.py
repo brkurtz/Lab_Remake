@@ -1,5 +1,6 @@
 from tkinter import *
 import random
+import time
 
 outcomes = {
     'rock': {'rock': 1, 'paper': 0, 'scissors': 2},
@@ -145,7 +146,8 @@ class RPSgui:
         options = ['rock', 'paper', 'scissors']
         rand = random.randint(0, 2)
         computer_choice = options[rand]
-        result = outcomes['rock'][computer_choice]
+        player_choice = 'rock'
+        result = outcomes[player_choice][computer_choice]
         if round_counter <= max_round:
             round_counter = round_counter + 1
             if result == 2:
@@ -155,7 +157,6 @@ class RPSgui:
                 comp_score = comp_score + 1
             elif result == 0:
                 comp_score = comp_score + 2
-        player_choice = 'rock'
         self.update()
 
     def paper(self) -> None:
@@ -171,7 +172,8 @@ class RPSgui:
         options = ['rock', 'paper', 'scissors']
         rand = random.randint(0, 2)
         computer_choice = options[rand]
-        result = outcomes['paper'][computer_choice]
+        player_choice = 'paper'
+        result = outcomes[player_choice][computer_choice]
         if round_counter <= max_round:
             round_counter = round_counter + 1
             if result == 2:
@@ -181,7 +183,6 @@ class RPSgui:
                 comp_score = comp_score + 1
             elif result == 0:
                 comp_score = comp_score + 2
-        player_choice = 'paper'
         self.update()
 
     def scissors(self) -> None:
@@ -197,7 +198,8 @@ class RPSgui:
         options = ['rock', 'paper', 'scissors']
         rand = random.randint(0, 2)
         computer_choice = options[rand]
-        result = outcomes['scissors'][computer_choice]
+        player_choice = 'scissors'
+        result = outcomes[player_choice][computer_choice]
         if round_counter <= max_round:
             round_counter = round_counter + 1
             if result == 2:
@@ -207,7 +209,6 @@ class RPSgui:
                 comp_score = comp_score + 1
             elif result == 0:
                 comp_score = comp_score + 2
-        player_choice = 'scissors'
         self.update()
 
     def update(self):
@@ -226,9 +227,12 @@ class RPSgui:
             self.choice_paper.config(state='disabled')
             self.choice_scissors.config(state='disabled')
             if player_score > comp_score:
-                self.label_outcome.config(text='You beat the computer!')
+                self.label_outcome.config(text=f'You chose {player_choice} and the computer chose {computer_choice}\n '
+                                               'You beat the computer!')
             elif player_score == comp_score:
-                self.label_outcome.config(text='You tied with the computer')
+                self.label_outcome.config(text=f'You chose {player_choice} and the computer chose {computer_choice}\n '
+                                               'You tied with the computer')
             else:
-                self.label_outcome.config(text='You lost to the computer')
+                self.label_outcome.config(text=f'You chose {player_choice} and the computer chose {computer_choice}'
+                                               '\nYou lost to the computer')
 
